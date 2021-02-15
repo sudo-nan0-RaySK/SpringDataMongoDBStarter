@@ -30,6 +30,10 @@ public class PersonService {
         return Optional.of(personRepository.findByLastName(lastName));
     }
 
+    public List<Person> getAllByVehicleType(String vehicleType){
+        return personRepository.findByVehicleType(vehicleType);
+    }
+
     public long deletePersonByFirstName(String firstName){
         return personRepository.deleteByFirstName(firstName);
     }

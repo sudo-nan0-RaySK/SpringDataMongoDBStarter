@@ -22,6 +22,11 @@ public class PersonController {
         return personService.findAll();
     }
 
+    @GetMapping("/byType/{type}")
+    public List<Person> getByVehicleType(@PathVariable("type") String type){
+        return personService.getAllByVehicleType(type);
+    }
+
     @DeleteMapping("/{firstName}")
     public long deleteByFirstName(@PathVariable("firstName") String firstName){
         return personService.deletePersonByFirstName(firstName);

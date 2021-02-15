@@ -1,6 +1,7 @@
 package com.ray.springdatamongodb;
 
 import com.ray.springdatamongodb.models.Person;
+import com.ray.springdatamongodb.models.Vehicle;
 import com.ray.springdatamongodb.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,9 +23,12 @@ public class SpringDataMongodbApplication implements CommandLineRunner {
 
 		personRepository.deleteAll();
 
-		personRepository.insert(new Person("Ray","Kan"));
-		personRepository.insert(new Person("Mariah","Wong"));
-		personRepository.insert(new Person("Tyson","Jordan"));
+		personRepository.insert(new Person("Ray","Kan",
+				new Vehicle("Alto 800","budget")));
+		personRepository.insert(new Person("Mariah","Wong",
+				new Vehicle("Honda City","Sedan")));
+		personRepository.insert(new Person("Tyson","Jordan",
+				new Vehicle("Renault Duster","SUV")));
 
 		System.out.println(personRepository.findByLastName("Wong"));
 	}

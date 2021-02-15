@@ -1,7 +1,6 @@
 package com.ray.springdatamongodb.models;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
@@ -13,11 +12,13 @@ public class Person {
 
     @Id
     private String id;
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
+    private final Vehicle vehicleDetails;
 
-    public Person(String firstName, String lastName){
+    public Person(String firstName, String lastName, Vehicle vehicleDetails){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.vehicleDetails = vehicleDetails;
     }
 }
